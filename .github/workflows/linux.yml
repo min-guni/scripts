@@ -20,7 +20,7 @@ jobs:
         run: |
           wget https://github.com/min-guni/linux/archive/$(git rev-parse HEAD:linux).zip
           sudo apt install unzip
-          unzip linux-$(git rev-parse HEAD:linux).zip
+          unzip $(git rev-parse HEAD:linux).zip
 
       - name: build unzipped file
         run: |
