@@ -1,0 +1,28 @@
+
+name: hw2 c - 1
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - linux
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: download linux repository
+        run: |
+          wget https://github.com/min-guni/linux/archive/$(git rev-parse HEAD:linux).zip
+          sudo apt install unzip
+          unzip $(git rev-parse HEAD:linux).zip
+
+      - name: build unzipped file
+        run: |
+          sudo apt install gcc-8
+          ./build-linux.sh linux-$(git rev-parse HEAD:linux) tinyconfig
