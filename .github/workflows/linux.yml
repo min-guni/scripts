@@ -24,4 +24,4 @@ jobs:
 
       - name: build unzipped file
         run: |
-          ./build-linux.sh linux-%(git rev-parse HEAD:linux) tinyconfig
+          ./build-linux.sh linux-$(git rev-parse HEAD:linux) tinyconfig
