@@ -24,4 +24,5 @@ jobs:
 
       - name: build unzipped file
         run: |
+          sudo apt install gcc-8
           ./build-linux.sh linux-$(git rev-parse HEAD:linux) tinyconfig
