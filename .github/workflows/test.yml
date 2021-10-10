@@ -1,0 +1,22 @@
+
+
+name: hw2 c - 2
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'test/**'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: test
+        run: |
+          make -C test
